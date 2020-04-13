@@ -26,6 +26,35 @@ xui.Class('App', 'xui.Module',{
                 .setDock("fill")
                 .setLeft("9.904761904761905em")
                 .setTop("16.761904761904763em")
+                .onClick({
+                    "newbies":{
+                        "N1ioqqs6u":"xui.svg.circle"
+                    },
+                    "actions":[
+                        {
+                            "desc":"create a circle",
+                            "type":"control",
+                            "target":"{temp.newbies.N1ioqqs6u}",
+                            "args":[
+                                {
+                                    "attr":{
+                                        "cx":"{args[1]}.pageX",
+                                        "cy":"{args[1]}.pageY"
+                                    }
+                                }
+                            ],
+                            "method":"setProperties",
+                            "event":1
+                        },
+                        {
+                            "desc":"show circle",
+                            "type":"control",
+                            "target":"{temp.newbies.N1ioqqs6u}",
+                            "args":[ ],
+                            "method":"show"
+                        }
+                    ]
+                })
             );
             
             return children;
