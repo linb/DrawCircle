@@ -57,7 +57,7 @@ xui.Class('App', 'xui.Module',{
                 pos = xui.Event.getPos(e),
                 circle = ns.xui_svg_circle12;
             
-            circle.setAttr({cx: pos.x, cy: pos.y });
+            circle.setAttr("KEY",{cx: pos.x, cy: pos.y }, true);
         }
     }
 });
