@@ -26,34 +26,20 @@ xui.Class('App', 'xui.Module',{
                 .setDock("fill")
                 .setLeft("9.904761904761905em")
                 .setTop("16.761904761904763em")
-                .onClick({
-                    "newbies":{
-                        "N1ioqqs6u":"xui.svg.circle"
-                    },
-                    "actions":[
-                        {
-                            "desc":"create a circle",
-                            "type":"control",
-                            "target":"{temp.newbies.N1ioqqs6u}",
-                            "args":[
-                                {
-                                    "attr":{
-                                        "cx":"{args[1]}.pageX",
-                                        "cy":"{args[1]}.pageY"
-                                    }
-                                }
-                            ],
-                            "method":"setProperties",
-                            "event":1
-                        },
-                        {
-                            "desc":"show circle",
-                            "type":"control",
-                            "target":"{temp.newbies.N1ioqqs6u}",
-                            "args":[ ],
-                            "method":"show"
-                        }
-                    ]
+                .onClick("_xui_ui_svgpaper1_onclick")
+            );
+            
+            host.xui_ui_svgpaper1.append(
+                xui.create("xui.svg.circle")
+                .setHost(host,"xui_svg_circle12")
+                .setSvgTag("Shapes:Circle")
+                .setAttr({
+                    "r":45,
+                    "stroke":"#004A7F",
+                    "fill":"#ffffff",
+                    "stroke-width":2,
+                    "cx":205,
+                    "cy":155
                 })
             );
             
@@ -65,20 +51,13 @@ xui.Class('App', 'xui.Module',{
         customAppend : function(parent, subId, left, top){
             // "return false" will cause all the internal UI controls will be added to the parent panel
             return false;
-        }
-        /*,
-        // To determine how properties affects this module
-        propSetAction : function(prop){
         },
-        // To set all node's style in this modlue
-        customStyle:{}
-    },
-    //To customize the default properties and event handlers
-    Static:{
-        $DataModel:{
-        },
-        $EventHandlers:{
+        _xui_ui_svgpaper1_onclick:function(profile, e, src){
+            var ns = this,
+                pos = xui.Event.getPos(e),
+                circle = ns.xui_svg_circle12;
+            
+            circle.setAttr({cx: pos.x, cy: pos.y });
         }
-    */
     }
 });
